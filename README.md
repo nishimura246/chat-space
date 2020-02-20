@@ -9,8 +9,8 @@
 - belongs_to :group
 - belongs_to :user
 
-
-### userテーブル
+dd
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -21,14 +21,14 @@
 
 ### Association
 - has_many :messages
-- hans_many :user_groups
+- hans_many :groups, through: :groups_users
 
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|interger|null: false, primary_key|
-|body|text|null: false|
+|id|integer|null: false, primary_key|
+|body|text||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
@@ -41,9 +41,9 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|interger|null: false, primary_key|
+|id|integer|null: false, primary_key|
 |nickname|string|null: false|
 
 ### Association
 - has_many :messages
-- has_many :user_groups
+- has_many :users, through: :groups_users
