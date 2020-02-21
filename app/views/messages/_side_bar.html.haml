@@ -2,7 +2,15 @@
   .side-bar__user-name
     .side-bar__user-name__top-items
       .side-bar__user-name__top-items__name
+        西村
       .side-bar__user-name__top-items__icons
-        %link_to "#" 
-        %far_fa-edit
+        =link_to "#", class: "icons__btn" do
+          = icon('far', 'edit', class:"btn--icon")
+        =link_to "#", class: "icons__btn" do
+          = icon("far", "sun", class:"btn--icon")
   .side-bar__group-list
+    .side-bar__group-list__group-contents
+      .side-bar__group-list__group-contents__group-name
+        nishimura
+      .side-bar__group-list__group-contents__group-message
+        nishimura
