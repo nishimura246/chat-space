@@ -6,13 +6,13 @@
 
       .side-bar__user-name__top-items__icons
         =link_to new_group_path do
-          = icon('far', 'edit', class:"btn--icon")
+          = icon('far', 'edit', class: "btn--icon")
         =link_to edit_user_path(current_user) do
-          = icon("far", "sun", class:"btn--icon")
+          = icon("far", "sun", class: "btn--icon")
   .side-bar__group-list
     - current_user.groups.each do |group|
       .side-bar__group-list__contents
-        = link_to "#" do
+        = link_to group_messages_path(group) do
           .side-bar__group-list__contents__name
             = group.name
           .side-bar__group-list__contents__message
