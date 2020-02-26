@@ -18,8 +18,9 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    redirect_to group_messages_path(group.id)
   end
+
 
   def update
     @group = Group.find(params[:id])
