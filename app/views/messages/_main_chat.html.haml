@@ -1,3 +1,4 @@
+
 .chat-main
   .chat-main__group-info
     .chat-main__group-info__contents-left
@@ -7,33 +8,15 @@
         kohei: nishimura
     .chat-main__group-info__contents-right
       .chat-main__group-info__contents-right__edit
-        = link_to "#",class: "edit__btn" do
+        = link_to edit_group_path(@group) ,class: "edit__btn" do
           .chat-main__group-info__contents-right__edit__text
-          Edit
+            Edit
+
   .chat-main__message-list
-    .chat-main__message-list__contents
-      .chat-main__message-list__contents__info
-        nishimura
-        .chat-main__message-list__contents__info__date
-          2020 02/21
-      .chat-main__message-list__contents__title
-        こんにちは
-      .chat-main__message-list__contents__info
-        nishimura
-        .chat-main__message-list__contents__info__date
-          2020 02/21
-      .chat-main__message-list__contents__title
-        こんにちは
-  -# .chat-main__message-form
-  -#   .chat-main__message-form__contents 
-  -#     %input{type: "text", class:"text", placeholder: "type a message"}
-  -#     .chat-main__message-form__contents__type
-  -#     .chat-main__message-form__contents__icon
-  -#       %label{class: "send-btn"}
-  -#         = icon("fas", "camera", class:"btn--icon")
-  -#   .chat-main__message-form__send
-  -#     = link_to "Send", "#",class: "send__btn"
-      
+    .messages
+      = render @messages
+    
+        
   .chat-main__message-form
     = form_for [@group, @message] do |f|
       .chat-main__message-form__contents 
