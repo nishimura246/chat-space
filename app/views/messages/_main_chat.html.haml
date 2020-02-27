@@ -3,9 +3,10 @@
   .chat-main__group-info
     .chat-main__group-info__contents-left
       .chat-main__group-info__contents-left__summary
-        チャット
+        = @group.name
       .chat-main__group-info__contents-left__member
-        kohei: nishimura
+        - @group.user.each do |user|
+        = user.name
     .chat-main__group-info__contents-right
       .chat-main__group-info__contents-right__edit
         = link_to edit_group_path(@group) ,class: "edit__btn" do
