@@ -109,6 +109,7 @@
       height: calc(100vh - 190px);
       padding-left: 40px;
       padding-top: 35px;
+      overflow: scroll;
       &__contents{
         &__info{
           color: #333333;
