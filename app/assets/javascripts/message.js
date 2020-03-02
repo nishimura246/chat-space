@@ -3,15 +3,15 @@ $(function() {
     if (message.content && message.image) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
+          `<div class="chat-main__message-list__contents__info">` +
             message.user_name +
           `</div>` +
-          `<div class="upper-message__date">` +
+          `<div class="chat-main__message-list__contents__info__date">` +
             message.created_at +
           `</div>` +
         `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
+        `<div class="chat-main__message-list__contents__title">` +
+          `<p class="chat-main__message-list__contents__title__content">` +
             message.content +
           `</p>` +
           `<img src="` + message.image + `" class="lower-message__image" >` +
@@ -20,15 +20,15 @@ $(function() {
     } else if (message.content) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
           `<div class="upper-message">` +
-            `<div class="upper-message__user-name">` +
+            `<div class="chat-main__message-list__contents__info">` +
               message.user_name +
             `</div>` +
-            `<div class="upper-message__date">` +
+            `<div class="chat-main__message-list__contents__info__date">` +
               message.created_at +
             `</div>` +
           `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
+        `<div class="chat-main__message-list__contents__title">` +
+          `<p class="chat-main__message-list__contents__title__content">` +
             message.content +
           `</p>` +
         `</div>` +
@@ -36,10 +36,10 @@ $(function() {
     } else if (message.image) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
+          `<div class="chat-main__message-list__contents__info">` +
             message.user_name +
           `</div>` +
-          `<div class="upper-message__date">` +
+          `<div class="chat-main__message-list__contents__info__date">` +
             message.created_at +
           `</div>` +
         `</div>` +
@@ -64,7 +64,6 @@ $(function() {
       contentType: false
     })
     .done(function(data){
-      console.log("animate")
       var html = buildHTML(data);
       $('.messages').append(html);
       $('form')[0].reset();
@@ -96,6 +95,8 @@ $(function() {
         alert('error');
       });
     };
-    setInterval(reloadMessages, 7000);
   });
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
