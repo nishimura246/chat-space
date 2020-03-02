@@ -64,11 +64,11 @@ $(function() {
       contentType: false
     })
     .done(function(data){
+      console.log("animate")
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('form')[0].reset();
-      $('.box').animate({'height' : '100vh'});
+      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
       $('.send_btn').prop('disabled', false);
     })
     .fail(function() {
@@ -96,5 +96,6 @@ $(function() {
         alert('error');
       });
     };
+    setInterval(reloadMessages, 7000);
   });
 });
